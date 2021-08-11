@@ -9,11 +9,18 @@
     <link id="mystylesheet" rel="stylesheet" type="text/css" href="masterdark.css">
     <script src="https://kit.fontawesome.com/64183accd3.js" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-function swapStyle(sheet) {
-  document.getElementById('mystylesheet').href = sheet
-}
-
+    <script type="text/javascript">
+      var setTheme = localStorage.getItem('theme')
+      console.log('theme:', setTheme)
+      if (setTheme == null){
+        swapStyle('masterdark.css')
+      }else {
+        swapStyle(setTheme)
+      }
+      function swapStyle(sheet) {
+        document.getElementById('mystylesheet').href = sheet
+        localStorage.setItem('theme', sheet)
+      }
 </script>
 
 
@@ -72,7 +79,7 @@ function swapStyle(sheet) {
               <br>
               <i class="fas fa-graduation-cap fa-lg"></i> Undergradute studies at Western Govenors University
               <br>
-              <i class="fas fa-laptop-code fa-lg"></i> Homelab experimentenation
+              <i class="fas fa-laptop-code fa-lg"></i> Homelab experimentation
               <br>
               <i class="fas fa-code fa-lg"></i> Programming in Python
             </p>
